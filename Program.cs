@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace SnakeAndLadder.cs
 {
@@ -8,8 +7,6 @@ namespace SnakeAndLadder.cs
         public static int start = 0;
         public static int position = 0;
         public static int winPosition = 100;
-        public static int diceRollNum = 0;
-
 
         //Creating a random no using Random method()
         public static int CheckDice()
@@ -73,13 +70,39 @@ namespace SnakeAndLadder.cs
             while (position < winPosition)
             {
                 SnakeLadder.CheckOption();
-                diceRollNum++;
             }
+        }
+
+        public static void TwoPlayer()
+        {
+            while (true)
+            {
+                Random random = new Random();
+                int checkTurn = random.Next(1, 3);
+                if (checkTurn == 1)
+                {
+                    SnakeLadder.WinningPosition();
+                    if (position == winPosition)
+                    {
+                        Console.WriteLine("Player1 Won");
+                        break;
+                    }
+                }
+                if (checkTurn == 2)
+                {
+                    SnakeLadder.WinningPosition();
+                    if (position == winPosition)
+                    {
+                        Console.WriteLine("Player2 Won");
+                        break;
+                    }
+                }
+            }
+
         }
         static void Main(string[] args)
         {
-            SnakeLadder.WinningPosition();
-            Console.WriteLine("Number of times dice rolled:" + diceRollNum);
+            SnakeLadder.TwoPlayer();
             Console.ReadLine();
         }
     }
