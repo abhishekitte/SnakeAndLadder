@@ -4,15 +4,17 @@ namespace SnakeAndLadder.cs
 {
     class SnakeLadder
     {
-        public static void Position()
+        //creating a random numberusing Random method()
+        public static void CheckDice()
         {
-            int position = 0;
-            Console.WriteLine("Player is at start position:" + position);
+            Random random = new Random();
+            int CheckDice = random.Next(1, 6);
+            Console.WriteLine("Dice number:" + CheckDice);
         }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Single player");
-            SnakeLadder.Position();
+            SnakeLadder.CheckDice();
             Console.ReadLine();
         }
     }
